@@ -97,13 +97,10 @@ class HomePage extends StatelessWidget {
 
               const Spacer(),
 
-              // Buttons Section
-              Wrap(
-                spacing: 40.0,
-                runSpacing: 40.0,
-                alignment: WrapAlignment.center,
+              // Buttons Section (Icons in a Row)
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  _iconButton(context, "Puzzle", Icons.extension),
                   _iconButton(context, "SpaceX", Icons.rocket),
                   _iconButton(context, "Feed", Icons.sort),
                   _iconButton(context, "Live", Icons.live_tv),

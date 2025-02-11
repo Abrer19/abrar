@@ -6,70 +6,83 @@ class SpaceTravelHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF10002B), // Dark theme background
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        title: const Text(
-          "Location",
-          style: TextStyle(color: Colors.white, fontSize: 18),
-        ),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.notifications, color: Colors.white),
-            onPressed: () {},
+      body: Container(
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [
+              Color(0xff8e44ad), // Purple
+              Color(0xffd35400), // Orange
+            ],
           ),
-        ],
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            // Search Bar
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              decoration: BoxDecoration(
-                color: Colors.white.withOpacity(0.1),
-                borderRadius: BorderRadius.circular(12),
-              ),
-              child: const TextField(
-                decoration: InputDecoration(
-                  hintText: "Search planets...",
-                  hintStyle: TextStyle(color: Colors.white54),
-                  border: InputBorder.none,
-                  icon: Icon(Icons.search, color: Colors.white),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              AppBar(
+                backgroundColor: Colors.transparent,
+                elevation: 0,
+                title: const Text(
+                  "Location",
+                  style: TextStyle(color: Colors.white, fontSize: 18),
                 ),
-                style: TextStyle(color: Colors.white),
+                actions: [
+                  IconButton(
+                    icon: const Icon(Icons.notifications, color: Colors.white),
+                    onPressed: () {},
+                  ),
+                ],
               ),
-            ),
-            const SizedBox(height: 20),
+              const SizedBox(height: 20),
 
-            // Recommended Section
-            const Text(
-              "Recommended",
-              style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 10),
+              // Search Bar
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                decoration: BoxDecoration(
+                  color: Colors.white.withOpacity(0.1),
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: const TextField(
+                  decoration: InputDecoration(
+                    hintText: "Search planets...",
+                    hintStyle: TextStyle(color: Colors.white54),
+                    border: InputBorder.none,
+                    icon: Icon(Icons.search, color: Colors.white),
+                  ),
+                  style: TextStyle(color: Colors.white),
+                ),
+              ),
+              const SizedBox(height: 20),
 
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                _planetCard('assets/mars.png', "MARS", "\$500 / per person"),
-                _planetCard('assets/moon.png', "MOON", "\$350 / per person"),
-              ],
-            ),
-            const SizedBox(height: 20),
+              // Recommended Section
+              const Text(
+                "Recommended",
+                style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(height: 10),
 
-            // Explore Section
-            const Text(
-              "Explore",
-              style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 10),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  _planetCard('assets/mars.png', "MARS", "\$500 / per person"),
+                  _planetCard('assets/moon.png', "MOON", "\$350 / per person"),
+                ],
+              ),
+              const SizedBox(height: 20),
 
-            _exploreCard('assets/supernova.png', "Catch the nearest SUPERNOVA!"),
-          ],
+              // Explore Section
+              const Text(
+                "Explore",
+                style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(height: 10),
+
+              _exploreCard('assets/supernova.png', "Catch the nearest SUPERNOVA!"),
+            ],
+          ),
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(

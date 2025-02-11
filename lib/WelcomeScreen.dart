@@ -81,7 +81,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProvider
             // Welcome Text with Fade-in Animation
             AnimatedOpacity(
               opacity: _controller.value,
-              duration: const Duration(milliseconds: 800), // Increased duration for smoother fade-in
+              duration: const Duration(milliseconds: 500), // Increased duration for smoother fade-in
               child: const Text(
                 'Welcome Back',
                 style: TextStyle(
@@ -97,7 +97,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProvider
             // Subtitle Text with Fade-in Animation
             AnimatedOpacity(
               opacity: _controller.value,
-              duration: const Duration(milliseconds: 800), // Increased duration for smoother fade-in
+              duration: const Duration(milliseconds: 500), // Increased duration for smoother fade-in
               child: const Text(
                 'Sign in or create an account to continue',
                 textAlign: TextAlign.center,
@@ -130,7 +130,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProvider
             // Social Media Section with Scaling Animation
             AnimatedOpacity(
               opacity: _controller.value,
-              duration: const Duration(milliseconds: 800), // Increased duration for smoother opacity
+              duration: const Duration(milliseconds: 500), // Increased duration for smoother opacity
               child: const Text(
                 'Login with Social Media',
                 style: TextStyle(
@@ -163,7 +163,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProvider
   Widget _buildAnimatedButton(BuildContext context, String text, Widget screen, {bool isGradient = false}) {
     return AnimatedScale(
       scale: _controller.value,
-      duration: const Duration(milliseconds: 800), // Increased duration for smoother scaling
+      duration: const Duration(milliseconds: 600), // Increased duration for smoother scaling
       curve: Curves.easeInOut, // Smoother scaling effect
       child: GestureDetector(
         onTap: () {
