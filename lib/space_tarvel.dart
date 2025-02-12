@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'moon_details.dart'; // Import Moon Details Page
 
 class SpaceTravelHome extends StatelessWidget {
   const SpaceTravelHome({super.key});
@@ -12,8 +13,7 @@ class SpaceTravelHome extends StatelessWidget {
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
             colors: [
-              Color(0xff8e44ad), // Purple
-              Color(0xffd35400), // Orange
+              Color(0xff8e44ad), Color(0xffd35400) // Slightly Lighter Background
             ],
           ),
         ),
@@ -22,6 +22,7 @@ class SpaceTravelHome extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              // App Bar
               AppBar(
                 backgroundColor: Colors.transparent,
                 elevation: 0,
@@ -36,7 +37,7 @@ class SpaceTravelHome extends StatelessWidget {
                   ),
                 ],
               ),
-              const SizedBox(height: 20),
+              const SizedBox(height: 30),
 
               // Search Bar
               Container(
@@ -55,30 +56,30 @@ class SpaceTravelHome extends StatelessWidget {
                   style: TextStyle(color: Colors.white),
                 ),
               ),
-              const SizedBox(height: 20),
+              const SizedBox(height: 40),
 
               // Recommended Section
               const Text(
                 "Recommended",
-                style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
+                style: TextStyle(color: Colors.white, fontSize: 28, fontWeight: FontWeight.bold),
               ),
-              const SizedBox(height: 10),
+              const SizedBox(height: 20),
 
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  _planetCard('assets/mars.png', "MARS", "\$500 / per person"),
-                  _planetCard('assets/moon.png', "MOON", "\$350 / per person"),
+                  _planetCard('assets/mars.png', "MARS", "\$500 / per person", context),
+                  _planetCard('assets/moon1.png', "MOON", "\$350 / per person", context),
                 ],
               ),
-              const SizedBox(height: 20),
+              const SizedBox(height: 50),
 
               // Explore Section
               const Text(
                 "Explore",
-                style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
+                style: TextStyle(color: Colors.white, fontSize: 28, fontWeight: FontWeight.bold),
               ),
-              const SizedBox(height: 10),
+              const SizedBox(height: 20),
 
               _exploreCard('assets/supernova.png', "Catch the nearest SUPERNOVA!"),
             ],
@@ -88,7 +89,7 @@ class SpaceTravelHome extends StatelessWidget {
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: const Color(0xFF10002B),
         selectedItemColor: Colors.pinkAccent,
-        unselectedItemColor: Colors.white60,
+        unselectedItemColor: Colors.white54,
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: ""),
           BottomNavigationBarItem(icon: Icon(Icons.search), label: ""),
@@ -99,51 +100,63 @@ class SpaceTravelHome extends StatelessWidget {
     );
   }
 
-  Widget _planetCard(String imagePath, String name, String price) {
-    return Container(
-      width: 140,
-      height: 160,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(15),
-        image: DecorationImage(image: AssetImage(imagePath), fit: BoxFit.cover),
-      ),
-      child: Stack(
-        children: [
-          Positioned(
-            top: 8,
-            right: 8,
-            child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-              decoration: BoxDecoration(
-                color: Colors.black54,
-                borderRadius: BorderRadius.circular(12),
-              ),
-              child: const Text(
-                "Frequently Visited",
-                style: TextStyle(color: Colors.white, fontSize: 10),
+  // Widget for Planet Cards (Mars & Moon)
+  Widget _planetCard(String imagePath, String name, String price, BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        if (name == "MOON") {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const  SpaceTripApp()),
+          );
+        }
+      },
+      child: Container(
+        width: 160,
+        height: 180,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(25),
+          image: DecorationImage(image: AssetImage(imagePath), fit: BoxFit.cover),
+        ),
+        child: Stack(
+          children: [
+            Positioned(
+              top: 8,
+              right: 8,
+              child: Container(
+                padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 4),
+                decoration: BoxDecoration(
+                  color: Colors.black54,
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: const Text(
+                  "Frequently Visited",
+                  style: TextStyle(color: Colors.white, fontSize: 12),
+                ),
               ),
             ),
-          ),
-          Positioned(
-            bottom: 10,
-            left: 10,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(name, style: const TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold)),
-                Text(price, style: const TextStyle(color: Colors.white70, fontSize: 12)),
-              ],
+            Positioned(
+              bottom: 20,
+              left: 20,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(name, style: const TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold)),
+                  Text(price, style: const TextStyle(color: Colors.white70, fontSize: 14)),
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
 
+  // Widget for Explore Card
   Widget _exploreCard(String imagePath, String title) {
     return Container(
       width: double.infinity,
-      height: 120,
+      height: 140,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(15),
         image: DecorationImage(image: AssetImage(imagePath), fit: BoxFit.cover),
@@ -151,16 +164,9 @@ class SpaceTravelHome extends StatelessWidget {
       child: Center(
         child: Text(
           title,
-          style: const TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
+          style: const TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
         ),
       ),
     );
   }
-}
-
-void main() {
-  runApp(const MaterialApp(
-    debugShowCheckedModeBanner: false,
-    home: SpaceTravelHome(),
-  ));
 }
