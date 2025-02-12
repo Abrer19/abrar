@@ -84,7 +84,7 @@ class LiveTrackingPage extends StatelessWidget {
                               fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white),
                         ),
                         const SizedBox(height: 8),
-                        const Text('🚀 SJX9372', style: TextStyle(color: Colors.white, fontSize: 16)),
+                        const Text('Ticket No: SJX9372', style: TextStyle(color: Colors.white, fontSize: 16)),
                         const SizedBox(height: 8),
                         const Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -97,8 +97,8 @@ class LiveTrackingPage extends StatelessWidget {
                         const Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text('🔋 98%', style: TextStyle(color: Colors.white)),
-                            Text('100mAH', style: TextStyle(color: Colors.white))
+                            Text('Feb 9', style: TextStyle(color: Colors.white)),
+                            Text('Mr. Sazid', style: TextStyle(color: Colors.white))
                           ],
                         ),
                         const SizedBox(height: 8),
