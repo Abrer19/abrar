@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'articles_page.dart';
 import 'live_page.dart';
 import 'space_tarvel.dart';
 
@@ -32,7 +33,6 @@ class HomePage extends StatelessWidget {
                   children: [
                     Row(
                       children: [
-                        // Profile Image
                         Container(
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
@@ -72,7 +72,6 @@ class HomePage extends StatelessWidget {
                     ),
                     Row(
                       children: [
-                        // Online Status
                         Container(
                           padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                           decoration: BoxDecoration(
@@ -97,7 +96,7 @@ class HomePage extends StatelessWidget {
 
               const Spacer(),
 
-              // Buttons Section (Icons in a Row)
+              // Buttons Section
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
@@ -115,8 +114,8 @@ class HomePage extends StatelessWidget {
                 backgroundColor: const Color(0xff1A237E),
                 selectedItemColor: const Color(0xffFFEB3B),
                 unselectedItemColor: const Color(0xffC0C0C0),
-                currentIndex: 1, // Default tab selected is "Home"
-                elevation: 8, // Shadow effect
+                currentIndex: 1,
+                elevation: 8,
                 items: const [
                   BottomNavigationBarItem(
                     icon: Icon(Icons.history),
@@ -154,6 +153,11 @@ class HomePage extends StatelessWidget {
                 context,
                 MaterialPageRoute(builder: (context) => const SpaceTravelHome()),
               );
+            } else if (label == "Feed") {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const ArticlesPage()),
+              );
             } else {
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(content: Text("$label Clicked!")),
@@ -180,7 +184,7 @@ class HomePage extends StatelessWidget {
             child: Icon(
               icon,
               size: 30,
-              color: Colors.black, // Contrast color for the icon
+              color: Colors.black,
             ),
           ),
         ),

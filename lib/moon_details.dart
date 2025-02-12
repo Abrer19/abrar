@@ -1,7 +1,6 @@
+
 import 'package:flutter/material.dart';
-
-
-
+import 'trip_details_screen.dart';
 class SpaceTripApp extends StatelessWidget {
   const SpaceTripApp({super.key});
 
@@ -68,7 +67,7 @@ class SpaceTripScreen extends StatelessWidget {
                           borderRadius: BorderRadius.circular(8),
                         ),
                         child: const Text(
-                          "Mars Station IV",
+                          "Moon Station IV",
                           style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
                         ),
                       ),
@@ -120,7 +119,12 @@ class SpaceTripScreen extends StatelessWidget {
                         ),
                         minimumSize: const Size(double.infinity, 50),
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const TripDetailsScreen()),
+                        );
+                      },
                       child: const Text(
                         "CONFIRM DRAGON",
                         style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),

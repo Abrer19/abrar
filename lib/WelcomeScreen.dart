@@ -17,7 +17,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProvider
     super.initState();
     // Initialize the animation controller with a delay for smoother flow
     _controller = AnimationController(
-      duration: const Duration(milliseconds: 800), // Increased duration slightly for smoother animation
+      duration: const Duration(milliseconds: 100), // Increased duration slightly for smoother animation
       vsync: this,
     )..forward();
   }
@@ -50,7 +50,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProvider
 
             // Animated Logo Section
             TweenAnimationBuilder<double>(
-              duration: const Duration(milliseconds: 800), // Increased duration for smoother animation
+              duration: const Duration(milliseconds: 100), // Increased duration for smoother animation
               tween: Tween<double>(begin: 0.8, end: 1.0),
               curve: Curves.easeInOut, // Smoother transition
               builder: (context, scale, child) {
@@ -97,7 +97,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProvider
             // Subtitle Text with Fade-in Animation
             AnimatedOpacity(
               opacity: _controller.value,
-              duration: const Duration(milliseconds: 800), // Increased duration for smoother fade-in
+              duration: const Duration(milliseconds: 900), // Increased duration for smoother fade-in
               child: const Text(
                 'Sign in or create an account to continue',
                 textAlign: TextAlign.center,
